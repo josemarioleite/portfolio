@@ -2,23 +2,23 @@
 
 Portfolio
 
-## Install the dependencies
+## Instale as dependências
 ```bash
 yarn
 # or
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Inicie com o comando (vite)
 ```bash
-quasar dev
+npm run dev
 ```
 
 
-### Build the app for production
+### Crie o build para por em produção
 ```bash
 quasar build
 ```
 
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+### Configuração do quasar
+Veja: [Configurando quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
