@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = configure(function (/* ctx */) {
   return {
-    boot: ['i18n'],
+    boot: [],
     css: ['app.scss'],
     extras: [
       // 'ionicons-v4',
@@ -46,7 +46,7 @@ module.exports = configure(function (/* ctx */) {
     },
     devServer: {
       // https: true
-      open: true
+      open: false
     },
     framework: {
       lang: 'pt-BR',
@@ -56,8 +56,7 @@ module.exports = configure(function (/* ctx */) {
       // components: [],
       // directives: [],
     },
-    // animations: 'all'
-    animations: [],
+    animations: 'all',
     ssr: {
       // ssrPwaHtmlFilename: 'offline.html',
       // extendSSRWebserverConf (esbuildConf) {},
