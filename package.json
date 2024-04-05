@@ -15,12 +15,10 @@
     "@quasar/extras": "^1.16.4",
     "quasar": "^2.8.0",
     "vue": "^3.4.18",
-    "vue-i18n": "^9.2.2",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.24.4",
-    "@intlify/vite-plugin-vue-i18n": "^3.3.1",
     "@quasar/app-vite": "^1.8.0",
     "@testing-library/vue": "^8.0.3",
     "@types/jest": "^29.5.12",
