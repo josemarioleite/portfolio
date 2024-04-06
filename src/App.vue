@@ -148,6 +148,7 @@ defineOptions({
     box-shadow: 3px 3px 2px 0px rgba(87,87,87,1);
   }
 }
+
 @media only screen and (max-width: 767px) {
   .header__dev {
     margin-left: 10px;
