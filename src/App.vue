@@ -1,9 +1,6 @@
 <template>
 <q-layout view="hHh lpR fFf">
   <q-header elevated class="header">
-    <div class="header__dev">
-      <span>Dev</span>
-    </div>
 
     <template v-if="!isMobile">
       <q-list dense class="header__list">
@@ -14,10 +11,11 @@
         </q-item>
       </q-list>
     </template>
+
     <template v-else>
       <q-btn
         @click="drawer = !drawer"
-        style="margin-right: 25px;"
+        class="header__btn"
         icon="menu"
         color="black"
         dense
@@ -27,7 +25,7 @@
   </q-header>
 
   <transition appear enter-active-class="animated fadeInDown">
-    <div v-if="isMobile && drawer" class="mobile__drawer" style="margin-top: 65px;">
+    <div v-if="isMobile && drawer" class="mobile__drawer" style="margin-top: 75px;">
       <q-list dense class="menu-list text-center">
         <q-item v-for="(item, key) in menuList" :key="key" :active="activePage === item.page" class="header__list--item">
           <q-item-section @click="setPage(item.page)">
@@ -117,8 +115,9 @@ defineOptions({
   &__list {
     display: flex;
     flex-direction: row;
-    margin-right: 50px;
-    gap: 25px;
+    width: 100%;
+    justify-content: center;
+    gap: 50px;
     font-size: 1.1rem;
     color: #000;
 
@@ -142,16 +141,18 @@ defineOptions({
   .q-item--active {
     border-radius: 5px;
     color: #ffffff;
-    background-color:rgb(29, 29, 29);
+    background-color:$mario;
     -webkit-box-shadow: 3px 3px 2px 0px rgba(87,87,87,1);
     -moz-box-shadow: 3px 3px 2px 0px rgba(87,87,87,1);
     box-shadow: 3px 3px 2px 0px rgba(87,87,87,1);
   }
 }
 
-@media only screen and (max-width: 767px) {
-  .header__dev {
-    margin-left: 10px;
+@media only screen and (max-width: 499px) {
+  .header__btn {
+    display: flex;
+    position: absolute;
+    right: 20px;
   }
 }
 </style>
