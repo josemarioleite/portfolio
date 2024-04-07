@@ -1,13 +1,23 @@
 <template>
-  <div class="home" style="height: 100px; width: 100%;">
-    <div class="home__welcome">
-      <span> What's up, I'm <b class="b__mario">Mário Leite</b>. </span>
-      <br>
-      <span class="home__welcome--t2">{{ typedText }}</span>
+  <div class="home row col-12">
+    <div class="home__dev-site col-12">
+      <span>Site em Desenvolvimento</span>
     </div>
-    <div class="home__img">
+
+    <div class="home__welcome col-md-6 col-xs-12">
+      <div class="home__welcome__text">
+        <span class="home__welcome__text--t1"> What's up, I'm</span>
+        <br>
+        <b class="home__welcome__text--t1-bold">Mário Leite</b>.
+        <br>
+        <span class="home__welcome__text--t2">{{ typedText }}</span>
+      </div>
+    </div>
+
+    <div class="home__img col-md-6 col-xs-12">
       <img src="src/assets/eu.png" alt="eu" />
     </div>
+
   </div>
 </template>
 
@@ -41,107 +51,85 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .home {
-  position: absolute;
-  top: 20%;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100vh;
-}
-
-.home__welcome,
-.home__img {
-  width: 50%;
-}
-
-.home__img img {
-  position: absolute;
-  right: 5%;
-  width: 450px;
-  max-width: 100%;
-  border-radius: 50%;
-  margin-left: 20px;
-  -webkit-box-shadow: 0px 0px 55px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 55px -5px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 55px -5px rgba(0,0,0,0.75);
-}
-
-.home__welcome {
-  position: absolute;
-  top: 15%;
-  font-size: 4rem;
-  margin-left: 10%;
-
-  &--t2 {
-    font-size: 3rem;
+  &__welcome,
+  &__img {
+    position: absolute;
+    height: 100%;
   }
-}
 
-.b__mario {
-  color: $mario;
-}
+  &__welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
+    &__text {
+      align-self: flex-end;
+      font-size: 4.5rem;
+
+      &--t1 {
+        line-height: 1.5;
+
+        &-bold {
+          color: $mario;
+        }
+      }
+
+      &--t2 {
+        font-size: 2.5rem;
+      }
+    }
   }
-  50% {
-    border-color: #000;
+
+  &__img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    right: 0;
+
+    img {
+      height: 430px;
+      width: 430px;
+      max-width: 95%;
+      margin-left: 100px;
+      border-radius: 50%;
+      box-shadow: 0px 0px 55px -5px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 0px 0px 55px -5px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 55px -5px rgba(0,0,0,0.75);
+    }
+  }
+
+  &__dev-site {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
+
+    span {
+      color: #961414;
+      animation: blink 1s infinite alternate;
+      font-size: 4rem;
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    }
   }
 }
 
 @media only screen and (max-width: 499px) {
   .home {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-  }
-
-  .home__welcome {
-    position: static;
-    width: 350px;
-    max-width: 95%;
-    top: -45%;
-    font-size: 2.5rem;
-    margin: 0;
-    text-align: center;
-    height: 50vh;
-
-    &--t2 {
-      font-size: 1.3rem;
+    &__welcome {
     }
-  }
 
-  .home__img {
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  .home__img img {
-    width: 100%;
-    right: initial;
-    max-width: 300px;
-    margin-left: 0;
-    position: relative;
-  }
-
-  .home__welcome::after {
-    content: "|";
-    animation: blink-caret 1s step-end infinite;
-    font-size: 2rem;
-    vertical-align: middle;
-    margin-left: 5px;
-  }
-
-  @keyframes blink-caret {
-    from, to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: #000;
+    &__img {
+      background: #fff;
     }
   }
 }
