@@ -15,7 +15,7 @@
     </div>
 
     <div class="home__img col-md-6 col-xs-12">
-      <img src="src/assets/eu.png" alt="eu" />
+      <img src="../../assets/eu.png" alt="eu" />
     </div>
 
   </div>
