@@ -36,8 +36,10 @@
     </div>
   </transition>
 
-  <q-page-container :style="drawer ? 'padding: 0;' : ''">
-    <router-view />
+  <q-page-container class="page__container" :style="drawer ? 'padding: 0;' : ''">
+    <q-page>
+      <router-view />
+    </q-page>
   </q-page-container>
 
 </q-layout>
