@@ -1,6 +1,0 @@
-[build]
-  command = "quasar build"
-  publish = "dist/spa" # O diretório onde os arquivos de build são gerados pelo Quasar
-
-[build.environment]
-  NODE_VERSION = "16" # Versão do Node.js que você quer usar durante a construção
