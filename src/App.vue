@@ -48,6 +48,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useQuasar } from 'quasar'
+import { Home, Tools } from './pages'
 
 interface Menu {
   icon: string;
