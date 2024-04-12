@@ -1,6 +1,6 @@
 <template>
 <div class="tools">
-  <Skill />
+  <Skill class="tools__skill" />
 </div>
 </template>
 
@@ -12,8 +12,14 @@ import Skill from './Skill.vue'
 .tools {
   z-index: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin: 30px;
+
+  &__skill {
+    padding: 10px;
+    border-radius: 10px;
+  }
 }
 </style>

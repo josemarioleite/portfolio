@@ -174,20 +174,21 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 499px) {
-  .home__dev-site {
-    display: none;
+  .home__dev-site span {
+    position: absolute;
+    bottom: 10%;
+    font-size: 1.5rem;
   }
 
   .home {
     &__welcome, &__img {
-      height: fit-content;
-      position: fixed;
-      top: 25%;
+      margin-top: 10px;
+      height: 50px;
+      position: absolute;
+      top: 30%;
     }
 
     &__welcome {
-      justify-content: flex-end;
-
       &__text {
         text-align: center;
         align-self: center;
@@ -205,8 +206,7 @@ onMounted(() => {
       align-items: center;
 
       img {
-        position: fixed;
-        top: 50%;
+        margin-top: 130px;
         height: 320px;
         width: 320px;
         margin-left: initial;

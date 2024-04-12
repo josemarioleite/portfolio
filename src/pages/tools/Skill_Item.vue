@@ -1,65 +1,115 @@
 <template>
-  <div class="item">
-    <q-carousel
-      v-model="style"
-      transition-prev="scale"
-      transition-next="scale"
-      swipeable
-      animated
-      control-color="white"
-      navigation
-      padding
-      arrows
-      height="550px"
-      class="bg-primary text-white shadow-1"
-    >
-      <template v-slot:navigation-icon="{ active, btnProps, onClick }">
-        <q-btn v-if="active" size="lg" icon="man" color="orange" flat round dense @click="onClick" />
-        <q-btn v-else size="sm" :icon="btnProps.icon" color="white" flat round dense @click="onClick" />
-      </template>
-
-      <q-carousel-slide name="style">
-        <q-img
-          class="skill__img"
-          src="../../assets/langs/typescript.png"
-          spinner-color="primary"
-          spinner-size="82px"
-        />
-        <!-- <div class="q-mt-md text-center">
-          {{ lorem }}
-        </div> -->
-      </q-carousel-slide>
-    </q-carousel>
-  </div>
+<div class="skill-item">
+  <span class="text-white q-pb-md">{{ text }}</span>
+  <q-img
+    :src="Image"
+    class="skill-item__img"
+    spinner-color="primary"
+    spinner-size="82px"
+  />
+</div>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
+import { computed } from 'vue'
 
-let images = ref([])
-const style = ref('style')
-const lorem = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque voluptatem totam, architecto cupiditate officia rerum, error dignissimos praesentium libero ab nemo.'
-
-const loadImages = () => {
-  const req: any = require
-  const context = req.context('../../assets/langs', false, /\.png$/)
-
-  images = context.keys().map(context)
+interface Props {
+  Image: string
 }
 
-onMounted(() => {
-  loadImages()
+const props = defineProps<Props>()
+
+const text = computed(() => {
+  let name = ''
+  const nameSkill = props.Image.replace('/src/assets/langs/', '').replace('.png', '')
+
+  switch (nameSkill) {
+    case 'xamarin':
+      name = 'Xamarin'
+      break;
+    case 'vuejs':
+      name = 'Vue.js'
+      break;
+    case 'csharp':
+      name = 'C# (.NET)'
+      break;
+    case 'css':
+      name = 'Css'
+      break;
+    case 'docker':
+      name = 'Docker'
+      break;
+    case 'html':
+      name = 'HTML5'
+      break;
+    case 'java':
+      name = 'Java'
+      break;
+    case 'javascript':
+      name = 'Javascript'
+      break;
+    case 'mongodb':
+      name = 'MongoDB'
+      break;
+    case 'mysql':
+      name = 'MySQL'
+      break;
+    case 'node':
+      name = 'Node.js'
+      break;
+    case 'openai':
+      name = 'OpenAI (gpt)'
+      break;
+    case 'postgres':
+      name = 'Postgres'
+      break;
+    case 'powerbi':
+      name = 'PowerBI'
+      break;
+    case 'scrum':
+      name = 'Scrum'
+      break;
+    case 'sql':
+      name = 'SQL'
+      break;
+    case 'typescript':
+      name = 'Typescript'
+      break;
+    case 'fluter':
+      name = 'Flutter'
+      break;
+    default:
+      name = ''
+      break;
+  }
+  return name
 })
 </script>
 
 <style lang="scss" scoped>
-.item {
-  width: 100%;
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  min-width: 170px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #000;
+
+  &__img {
+    width: 140px;
+    height: 140px;
+    animation: pulo 2s ease-in-out 0s infinite, giro 2s linear 0s infinite;
+    animation: giro 2s linear infinite;
+    animation-delay: 3s;
+  }
 }
 
-.skill__img {
+.skill-item:hover {
   z-index: 1;
-  height: 96px;
-  width: 96px;
+  background: $primary;
+  cursor: pointer;
 }
 </style>
