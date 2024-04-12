@@ -94,7 +94,7 @@ defineOptions({
 
 <style lang="scss" scoped>
 .header {
-  background-color: #fff;
+  background-color: #000;
   height: 65px;
   width: 100%;
   display: flex;
@@ -109,7 +109,7 @@ defineOptions({
     justify-content: center;
     gap: 50px;
     font-size: 1.1rem;
-    color: $mario;
+    // color: $mario;
 
     &--item:hover {
       cursor: pointer;

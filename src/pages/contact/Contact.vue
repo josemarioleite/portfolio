@@ -26,21 +26,22 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Email } from '../../utils/smtp'
+// import { Email } from '../../utils/smtp'
 
-const name = ref('E-mail de Teste')
-const email = ref('emaildeteste@gmail.com')
-const description = ref('exemplo de email a ser enviado')
+const name = ref('')
+const email = ref('')
+const description = ref('')
 
 const sendEmail = () => {
-  Email.send({
-    Subject: `E-MAIL (${name.value.toLocaleUpperCase()}) - CONTATO DO SITE`,
-    Body: email.value.toLocaleUpperCase() + '\n' + description.value
-  }).then(message => {
-    console.log(message)
-    alert(message)
-  })
-  .catch(err => console.log(err))
+  alert('Infelizmente ainda não está funcionando, mas você me chamar em alguma rede social')
+  // Email.send({
+  //   Subject: `E-MAIL (${name.value.toLocaleUpperCase()}) - CONTATO DO SITE`,
+  //   Body: email.value.toLocaleUpperCase() + '\n' + description.value
+  // }).then(message => {
+  //   console.log(message)
+  //   alert(message)
+  // })
+  // .catch(err => console.log(err))
 }
 </script>
 
@@ -58,9 +59,9 @@ const sendEmail = () => {
     height: 530px;
     width: 500px;
     border-radius: 20px;
-    box-shadow: 10px 10px 15px 2px rgba(52,44,124,1);
-    -webkit-box-shadow: 10px 10px 15px 2px rgba(52,44,124,1);
-    -moz-box-shadow: 10px 10px 15px 2px rgba(52,44,124,1);
+    box-shadow: 10px 10px 15px 2px $mario;
+    -webkit-box-shadow: 10px 10px 15px 2px $mario;
+    -moz-box-shadow: 10px 10px 15px 2px $mario;
 
     &__box {
       display: flex;
@@ -100,14 +101,14 @@ const sendEmail = () => {
       width: 2px;
       height: 2px;
       background: #fff;
-      animation: blink 1s infinite alternate;
+      animation: move 10s infinite linear, blink 1s infinite alternate;
 
       @for $i from 1 through 100 {
-        $random: random() * 1s;
+        $randomTime: random() * 10s;
         &:nth-child(#{$i}) {
           top: random(100) + vh;
           left: random(100) + vw;
-          animation-delay: $random;
+          animation-delay: $randomTime;
         }
       }
     }
@@ -121,6 +122,15 @@ const sendEmail = () => {
       }
       100% {
         opacity: 1;
+      }
+    }
+
+    @keyframes move {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(100vw, 100vh);
       }
     }
   }
