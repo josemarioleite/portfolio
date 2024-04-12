@@ -18,6 +18,10 @@
       <img src="../../assets/eu.png" alt="eu" />
     </div>
 
+    <div class="stars">
+      <div v-for="index in 100" :key="index" class="star"></div>
+    </div>
+
   </div>
 </template>
 
@@ -53,11 +57,13 @@ onMounted(() => {
 .home {
   &__welcome,
   &__img {
+    z-index: 1;
     position: absolute;
     height: 100%;
   }
 
   &__welcome {
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,6 +105,7 @@ onMounted(() => {
   }
 
   &__dev-site {
+    z-index: 1;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -123,13 +130,92 @@ onMounted(() => {
   }
 }
 
+.stars {
+  z-index: 0;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    animation: move 10s infinite linear, blink 1s infinite alternate;
+
+    @for $i from 1 through 100 {
+      $randomTime: random() * 10s;
+      &:nth-child(#{$i}) {
+        top: random(100) + vh;
+        left: random(100) + vw;
+        animation-delay: $randomTime;
+      }
+    }
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes move {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(100vw, 100vh);
+    }
+  }
+}
+
 @media only screen and (max-width: 499px) {
+  .home__dev-site {
+    display: none;
+  }
+
   .home {
+    &__welcome, &__img {
+      height: fit-content;
+      position: fixed;
+      top: 25%;
+    }
+
     &__welcome {
+      justify-content: flex-end;
+
+      &__text {
+        text-align: center;
+        align-self: center;
+        font-size: 2.5rem;
+
+        &--t2 {
+          font-size: 1.5rem;
+        }
+      }
     }
 
     &__img {
-      background: #fff;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      img {
+        position: fixed;
+        top: 50%;
+        height: 320px;
+        width: 320px;
+        margin-left: initial;
+      }
     }
   }
 }

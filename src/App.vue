@@ -1,6 +1,6 @@
 <template>
 <q-layout view="hHh lpR fFf">
-  <q-header elevated class="header">
+  <q-header class="header" reveal>
 
     <template v-if="!isMobile">
       <q-list dense class="header__list">
@@ -17,7 +17,6 @@
         @click="drawer = !drawer"
         class="header__btn"
         icon="menu"
-        color="black"
         dense
         flat
       />
@@ -48,6 +47,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useQuasar } from 'quasar'
+import { Home, Tools } from './pages'
 
 interface Menu {
   icon: string;
@@ -94,25 +94,13 @@ defineOptions({
 
 <style lang="scss" scoped>
 .header {
-  background-color: #fff;
+  background-color: #000;
   height: 65px;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
-  &__dev {
-    height: 35px;
-    width: 100px;
-    border-radius: 10px;
-    background-color: #5b19d6;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-left: 100px;
-  }
 
   &__list {
     display: flex;
@@ -121,7 +109,7 @@ defineOptions({
     justify-content: center;
     gap: 50px;
     font-size: 1.1rem;
-    color: #000;
+    // color: $mario;
 
     &--item:hover {
       cursor: pointer;
@@ -134,27 +122,40 @@ defineOptions({
     height: min-content;
     width: min-content;
   }
+}
 
-  .mobile__drawer {
-    width: 100%;
-    height: 194px;
-  }
+.mobile__drawer {
+  z-index: 1;
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  height: 128px;
+  background: $mario;
+  color: #fff;
+  font-size: 1rem;
+}
 
-  .q-item--active {
-    border-radius: 5px;
-    color: #ffffff;
-    background-color:$mario;
-    -webkit-box-shadow: 3px 3px 2px 0px rgba(87,87,87,1);
-    -moz-box-shadow: 3px 3px 2px 0px rgba(87,87,87,1);
-    box-shadow: 3px 3px 2px 0px rgba(87,87,87,1);
-  }
+.q-item--active {
+  border-radius: 5px;
+  background-color: $mario;
+  color: #fff;
 }
 
 @media only screen and (max-width: 499px) {
+  .header {
+    background: $mario;
+  }
+
   .header__btn {
     display: flex;
     position: absolute;
     right: 20px;
+    color: #fff;
+  }
+
+  .q-item--active {
+    border-radius: initial;
+    background-color: #6926e6;
   }
 }
 </style>
