@@ -1,16 +1,19 @@
 <template>
 <div class="tools">
-  <span class="text-h4"> Olá ? </span>
+  <Skill />
 </div>
 </template>
 
-<script setup lang="ts">
-
+<script lang="ts" setup>
+import Skill from './Skill.vue'
 </script>
 
 <style lang="scss" scoped>
 .tools {
-  // height: 100vh;
-  // width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 </style>

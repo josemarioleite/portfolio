@@ -17,11 +17,6 @@
     <div class="home__img col-md-6 col-xs-12">
       <img src="../../assets/eu.png" alt="eu" />
     </div>
-
-    <div class="stars">
-      <div v-for="index in 100" :key="index" class="star"></div>
-    </div>
-
   </div>
 </template>
 
