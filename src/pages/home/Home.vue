@@ -17,11 +17,6 @@
     <div class="home__img col-md-6 col-xs-12">
       <img src="../../assets/eu.png" alt="eu" />
     </div>
-
-    <div class="stars">
-      <div v-for="index in 100" :key="index" class="star"></div>
-    </div>
-
   </div>
 </template>
 
@@ -179,20 +174,21 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 499px) {
-  .home__dev-site {
-    display: none;
+  .home__dev-site span {
+    position: absolute;
+    bottom: 10%;
+    font-size: 1.5rem;
   }
 
   .home {
     &__welcome, &__img {
-      height: fit-content;
-      position: fixed;
-      top: 25%;
+      margin-top: 10px;
+      height: 50px;
+      position: absolute;
+      top: 30%;
     }
 
     &__welcome {
-      justify-content: flex-end;
-
       &__text {
         text-align: center;
         align-self: center;
@@ -210,8 +206,7 @@ onMounted(() => {
       align-items: center;
 
       img {
-        position: fixed;
-        top: 50%;
+        margin-top: 130px;
         height: 320px;
         width: 320px;
         margin-left: initial;
