@@ -124,12 +124,43 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 499px) {
+  .home__dev-site {
+    display: none;
+  }
+
   .home {
-    &__welcome {
+    &__welcome, &__img {
+      height: fit-content;
+      position: fixed;
+      top: 25%;
+    }
+
+    &__welcome {;
+      justify-content: flex-end;
+
+      &__text {
+        text-align: center;
+        align-self: center;
+        font-size: 2.5rem;
+
+        &--t2 {
+          font-size: 1.5rem;
+        }
+      }
     }
 
     &__img {
-      background: #fff;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      img {
+        position: fixed;
+        top: 50%;
+        height: 320px;
+        width: 320px;
+        margin-left: initial;
+      }
     }
   }
 }

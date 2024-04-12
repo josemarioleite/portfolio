@@ -26,17 +26,21 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Email } from '../../utils/smtp'
 
-const name = ref('')
-const email = ref('')
-const description = ref('')
+const name = ref('E-mail de Teste')
+const email = ref('emaildeteste@gmail.com')
+const description = ref('exemplo de email a ser enviado')
 
 const sendEmail = () => {
-  console.log({
-    name: name.value,
-    email: email.value,
-    description: description.value
+  Email.send({
+    Subject: `E-MAIL (${name.value.toLocaleUpperCase()}) - CONTATO DO SITE`,
+    Body: email.value.toLocaleUpperCase() + '\n' + description.value
+  }).then(message => {
+    console.log(message)
+    alert(message)
   })
+  .catch(err => console.log(err))
 }
 </script>
 
@@ -128,5 +132,14 @@ const sendEmail = () => {
   flex-direction: row;
   justify-content: center;
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 499px) {
+  .contact {
+    &__content {
+      max-width: 95%;
+      box-shadow: none;
+    }
+  }
 }
 </style>
